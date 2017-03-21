@@ -13,7 +13,9 @@ class App extends React.Component {
 		super();
 		this.state = ({ 
 			phone1: {},  
-			phone2: {}
+			phone2: {},
+			phone1others: {},
+			phone2others: {}
 		})
 		this.getDeviceByBrandAndModel = this.getDeviceByBrandAndModel.bind(this);
 		this.makeAjaxCall = this.makeAjaxCall.bind(this);
@@ -57,34 +59,27 @@ class App extends React.Component {
 	render() {
 		return(
 			<div className="container">
-			<header>
-				<h1>Sellular</h1>
-				<h2>Compare Mobile Phones</h2>
-			</header>
-				
+				<h1>Compare Phone Devices</h1>
 				<form className="enterInfo" onSubmit={this.getDeviceByBrandAndModel}>
-					<div className="formContainer">
-						<div className="firstDeviceForm">
-							<h3>First Device</h3>
-							<label htmlFor="userBrand">Phone Brand: </label>
-							<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} defaultValue="Samsung" required />
+					<div className="firstDeviceForm">
+						<h2>First Device</h2>
+						<label htmlFor="userBrand">Phone Brand: </label>
+						<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} defaultValue="Samsung" required />
 
-							<label htmlFor="userModel">Phone Model: </label>
-							<input type="text" name="userModel" ref={ref => this.userModel1 = ref} defaultValue="S300" required />
-						</div>
-
-						<div className="secondDeviceForm">
-							<h3>Second Device</h3>
-							<label htmlFor="userBrand">Phone Brand: </label>
-							<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} defaultValue="Samsung" required /> 
-
-							<label htmlFor="userModel">Phone Model: </label>
-							<input type="text" name="userModel" ref={ref => this.userModel2 = ref} defaultValue="Note5" required />	
-						</div>	
+						<label htmlFor="userModel">Phone Model: </label>
+						<input type="text" name="userModel" ref={ref => this.userModel1 = ref} defaultValue="S300" required />
 					</div>
-						<input className="btnCompare" type="submit" value="Compare"/>	
+
+					<div className="secondDeviceForm">
+						<h2>Second Device</h2>
+						<label htmlFor="userBrand">Phone Brand: </label>
+						<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} defaultValue="Samsung" required /> 
+
+						<label htmlFor="userModel">Phone Model: </label>
+						<input type="text" name="userModel" ref={ref => this.userModel2 = ref} defaultValue="Note5" required />	
+					</div>	
+						<input type="submit" value="Compare"/>	
 				</form>
-			
 
 				<div className="firstDeviceInfo-container">
 					<h3>{this.state.phone1.DeviceName}</h3>

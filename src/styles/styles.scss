@@ -1,0 +1,64 @@
+@import "partials/setup";
+@import "partials/variables";
+
+body {
+	background-color: $grey;
+	background-image: url('');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+header {
+	background-color: black;
+	margin: 0;
+	padding: 20px;
+}
+
+.container { // contains all
+	h1 {
+		color: $red;
+		font-family: $mainFont;
+		font-size: 4rem;
+		text-align: center;
+		margin: 20px 0 0 0;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		color: white;
+		font-family: $mainFont;
+		font-size: 1.6rem;
+		text-align: center;
+		margin-top: 0;
+	}
+
+	h3 {
+		color: black;
+	}
+}
+
+.formContainer { // contains both the forms
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
+}
+
+.btnCompare { // submit button
+
+}
+
+.firstDeviceForm, .secondDeviceForm {
+	width: 50%;
+	height: 100vh;
+}
+
+.firstDeviceForm {
+	background-image: url('../../images/android.jpg');
+	background-size: cover;
+}
+
+.secondDeviceForm {
+	background-image: url('../../image/.jpg');
+	background-size: cover; 
+}
