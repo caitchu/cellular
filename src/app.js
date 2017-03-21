@@ -13,10 +13,10 @@ class App extends React.Component {
 		super();
 		this.state = ({ 
 			phone1: {},  
-			phone2: {}
+			phone2: {},
+			displayData: false
 		})
 		this.getDeviceByBrandAndModel = this.getDeviceByBrandAndModel.bind(this);
-		this.makeAjaxCall = this.makeAjaxCall.bind(this);
 	}
 
 	makeAjaxCall(brandName, modelName) {
@@ -48,21 +48,111 @@ class App extends React.Component {
 			const phone2obj = phone2info[0]; 
 			
 			this.setState({
-				phone1: phone1info[0][0],
-				phone2: phone2info[0][0]
+				phone1: phone1info[0][0] || {},
+				phone2: phone2info[0][0] || {},
+				displayData: true
 			});
 		});
 	}
 
-	render() {
+	render() {	
+		let results = "";
+		if (this.state.displayData === true && Object.keys(this.state.phone1).length > 0 && Object.keys(this.state.phone2).length > 0) { 
+		 	results = (
+				<div className="bothPhones-container">
+					<div className="firstPhone-container">
+						<h3>{this.state.phone1.DeviceName}</h3>
+						<ul className="SpecsList">
+							<li><span>2G Bands:</span> {this.state.phone1._2g_bands}</li>
+							<li><span>Alert Types:</span> {this.state.phone1.alert_types}</li>
+							<li><span>Announced:</span> {this.state.phone1.announced}</li>
+							<li><span>Battery:</span> {this.state.phone1.battery_c}</li>
+							<li><span>Bluetooth:</span> {this.state.phone1.bluetooth}</li>
+							<li><span>Browser:</span> {this.state.phone1.browser}</li>
+							<li><span>Camera:</span> {this.state.phone1.camera_c}</li>
+							<li><span>Card Slot:</span> {this.state.phone1.card_slot}</li>
+							<li><span>Dimensions:</span> {this.state.phone1.dimensions}</li>
+							<li><span>Display:</span> {this.state.phone1.display_c}</li>
+							<li><span>Features:</span> {this.state.phone1.features_c}</li>
+							<li><span>GPS:</span> {this.state.phone1.gps}</li>
+							<li><span>Infrared Port:</span> {this.state.phone1.infrared_port}</li>
+							<li><span>Java:</span> {this.state.phone1.java}</li>
+							<li><span>Loud Speaker:</span> {this.state.phone1.loudspeaker_}</li>
+							<li><span>Messaging:</span> {this.state.phone1.messaging}</li>
+							<li><span>Phonebook:</span> {this.state.phone1.phonebook}</li>
+							<li><span>Radio:</span> {this.state.phone1.radio}</li>
+							<li><span>Resolution:</span> {this.state.phone1.resolution}</li>
+							<li><span>SIM:</span> {this.state.phone1.sim}</li>
+							<li><span>Standby:</span> {this.state.phone1.stand_by}</li>
+							<li><span>Talk Time:</span> {this.state.phone1.talk_time}</li>
+							<li><span>Technology:</span> {this.state.phone1.technology}</li>
+							<li><span>Type:</span> {this.state.phone1.type}</li>
+							<li><span>Weight:</span> {this.state.phone1.weight}</li>
+							<li><span>WLAN:</span> {this.state.phone1.wlan}</li>
+						</ul>
+					</div>	
+					<div className="secondPhone-container">
+						<h3>{this.state.phone2.DeviceName}</h3>
+						<ul className="SpecsList">
+							<li><span>2G Bands:</span> {this.state.phone2._2g_bands}</li>
+							<li><span>Alert Types:</span> {this.state.phone2.alert_types}</li>
+							<li><span>Announced:</span> {this.state.phone2.announced}</li>
+							<li><span>Battery:</span> {this.state.phone2.battery_c}</li>
+							<li><span>Bluetooth:</span> {this.state.phone2.bluetooth}</li>
+							<li><span>Browser:</span> {this.state.phone2.browser}</li>
+							<li><span>Camera:</span> {this.state.phone2.camera_c}</li>
+							<li><span>Card Slot:</span> {this.state.phone2.card_slot}</li>
+							<li><span>Dimensions:</span> {this.state.phone2.dimensions}</li>
+							<li><span>Display:</span> {this.state.phone2.display_c}</li>
+							<li><span>Features:</span> {this.state.phone2.features_c}</li>
+							<li><span>GPS:</span> {this.state.phone2.gps}</li>
+							<li><span>Infrared Port:</span> {this.state.phone2.infrared_port}</li>
+							<li><span>Java:</span> {this.state.phone2.java}</li>
+							<li><span>Loud Speaker:</span> {this.state.phone2.loudspeaker_}</li>
+							<li><span>Messaging:</span> {this.state.phone2.messaging}</li>
+							<li><span>Phonebook:</span> {this.state.phone2.phonebook}</li>
+							<li><span>Radio:</span> {this.state.phone2.radio}</li>
+							<li><span>Resolution:</span> {this.state.phone2.resolution}</li>
+							<li><span>SIM:</span> {this.state.phone2.sim}</li>
+							<li><span>Standby:</span> {this.state.phone2.stand_by}</li>
+							<li><span>Talk Time:</span> {this.state.phone2.talk_time}</li>
+							<li><span>Technology:</span> {this.state.phone2.technology}</li>
+							<li><span>Type:</span> {this.state.phone2.type}</li>
+							<li><span>Weight:</span> {this.state.phone2.weight}</li>
+							<li><span>WLAN:</span> {this.state.phone2.wlan}</li>
+						</ul>
+					</div>	
+				</div>
+				)
+			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length > 0) {
+				results = (
+					<div className="firstPhone-container">
+						<p>The first phone doesn't exist.</p>
+					</div>
+				)
+			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length > 0) && Object.keys(this.state.phone2).length === 0) {
+				results = (
+					<div className="secondPhone-container">
+						<p>The second phone doesn't exist.</p>
+					</div>
+				)
+			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length === 0) {
+				results = (
+					<div className="bothPhones-container">
+						<p>Both these phones don't exist!</p>
+					</div>
+				)
+			}
+
 		return(
 			<div className="container">
-			<header>
-				<h1>Sellular</h1>
-				<h2>Compare Mobile Phones</h2>
-			</header>
+
+				<div className="logo">
+					<h1>Versus</h1>
+					<h2>Compare Mobile Phones</h2>
+				</div>
 				
-				<form className="enterInfo" onSubmit={this.getDeviceByBrandAndModel}>
+				<form onSubmit={this.getDeviceByBrandAndModel}>
 					<div className="formContainer">
 						<div className="firstDeviceForm">
 							<h3>First Device</h3>
@@ -85,71 +175,8 @@ class App extends React.Component {
 						<input className="btnCompare" type="submit" value="Compare"/>	
 				</form>
 			
-
-				<div className="firstDeviceInfo-container">
-					<h3>{this.state.phone1.DeviceName}</h3>
-					<ul className="SpecsList">
-						<li>2G Bands: {this.state.phone1._2g_bands}</li>
-						<li>Alarm: {this.state.phone1.alarm}</li>
-						<li>Alert Types: {this.state.phone1.alert_types}</li>
-						<li>Announced: {this.state.phone1.announced}</li>
-						<li>Battery: {this.state.phone1.battery_c}</li>
-						<li>Bluetooth: {this.state.phone1.bluetooth}</li>
-						<li>Browser: {this.state.phone1.browser}</li>
-						<li>Camera: {this.state.phone1.camera_c}</li>
-						<li>Card Slot: {this.state.phone1.card_slot}</li>
-						<li>Dimensions: {this.state.phone1.dimensions}</li>
-						<li>Display: {this.state.phone1.display_c}</li>
-						<li>Features: {this.state.phone1.features_c}</li>
-						<li>GPS: {this.state.phone1.gps}</li>
-						<li>Infrared Port: {this.state.phone1.infrared_port}</li>
-						<li>Java: {this.state.phone1.java}</li>
-						<li>Loud Speaker: {this.state.phone1.loudspeaker_}</li>
-						<li>Messaging: {this.state.phone1.messaging}</li>
-						<li>Phonebook: {this.state.phone1.phonebook}</li>
-						<li>Radio: {this.state.phone1.radio}</li>
-						<li>Resolution: {this.state.phone1.resolution}</li>
-						<li>SIM: {this.state.phone1.sim}</li>
-						<li>Standby: {this.state.phone1.stand_by}</li>
-						<li>Talk Time: {this.state.phone1.talk_time}</li>
-						<li>Technology: {this.state.phone1.technology}</li>
-						<li>Type: {this.state.phone1.type}</li>
-						<li>Weight: {this.state.phone1.weight}</li>
-						<li>WLAN: {this.state.phone1.wlan}</li>
-					</ul>	
-				</div>
-
-				<div className="infoSecondDevice-container">	
-					<h3>{this.state.phone2.DeviceName}</h3>
-					<ul className="SpecsList">
-						<li>2G Bands: {this.state.phone2._2g_bands}</li>
-						<li>Alarm: {this.state.phone2.alarm}</li>
-						<li>Alert Types: {this.state.phone2.alert_types}</li>
-						<li>Announced: {this.state.phone2.announced}</li>
-						<li>Battery: {this.state.phone2.battery_c}</li>
-						<li>Bluetooth: {this.state.phone2.bluetooth}</li>
-						<li>Browser: {this.state.phone2.browser}</li>
-						<li>Camera: {this.state.phone2.camera_c}</li>
-						<li>Card Slot: {this.state.phone2.card_slot}</li>
-						<li>Dimensions: {this.state.phone2.dimensions}</li>
-						<li>Display: {this.state.phone2.display_c}</li>
-						<li>Features: {this.state.phone2.features_c}</li>
-						<li>GPS: {this.state.phone2.gps}</li>
-						<li>Infrared Port: {this.state.phone2.infrared_port}</li>
-						<li>Java: {this.state.phone2.java}</li>
-						<li>Loud Speaker: {this.state.phone2.loudspeaker_}</li>
-						<li>Messaging: {this.state.phone2.messaging}</li>
-						<li>Phonebook: {this.state.phone2.phonebook}</li>
-						<li>Radio: {this.state.phone2.radio}</li>
-						<li>Resolution: {this.state.phone2.resolution}</li>
-						<li>SIM: {this.state.phone2.sim}</li>
-						<li>Standby: {this.state.phone2.stand_by}</li>
-						<li>Talk Time: {this.state.phone2.talk_time}</li>
-						<li>Technology: {this.state.phone2.technology}</li>
-						<li>Type: {this.state.phone2.type}</li>
-						<li>Weight: {this.state.phone2.weight}</li>
-						<li>WLAN: {this.state.phone2.wlan}</li>
-					</ul>	
+				<div className="results">
+					{results}
 				</div>
 			</div>
 		)

@@ -8,57 +8,134 @@ body {
 	background-size: cover;
 }
 
-header {
-	background-color: black;
-	margin: 0;
+.logo {
+	margin: 0 auto;
 	padding: 20px;
-}
+	// background-color: black;
+	width: 400px;
 
-.container { // contains all
 	h1 {
-		color: $red;
-		font-family: $mainFont;
-		font-size: 4rem;
-		text-align: center;
-		margin: 20px 0 0 0;
+		color: white;
+		font-family: $headerFont;
+		font-size: 5.5rem;
+		margin: 40px 0 0 0;
 		text-transform: uppercase;
+		text-align: center;
 	}
 
 	h2 {
-		color: white;
-		font-family: $mainFont;
+		color: $lightbrown;
+		font-family: $headerFont;
 		font-size: 1.6rem;
+		margin: 0;
+		padding: 0;
 		text-align: center;
-		margin-top: 0;
-	}
-
-	h3 {
-		color: black;
+		text-transform: uppercase;
 	}
 }
 
-.formContainer { // contains both the forms
+.container { // contains all
+	background-image: url('../../images/android.jpg');
+	background-repeat: no-repeat;
+	background-color: black;
+	// background-position: 0 -100px;
+	background-size: cover;
+	height: 100vh;
+
+	h3 {
+		color: $red;
+		font-family: $headerFont;
+		font-size: 2.2rem;
+		margin: 0;
+	}
+}
+
+//Forms
+form { // contains the button too
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formContainer { // contains both the forms, not the button
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	justify-content: center;
+	padding-top: 100px;
 }
 
-.btnCompare { // submit button
-
+.btnCompare {
+	width: 200px;
+	padding: 20px;
+	background-color: black;
+	color: white;
+	font-family: $headerFont;
+	font-size: 1.1rem;
+	border: 0;
+	text-transform: uppercase;
+	margin: 90px;
 }
 
 .firstDeviceForm, .secondDeviceForm {
-	width: 50%;
-	height: 100vh;
-}
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	padding: 0 60px;
+	font-family: $headerFont;
 
-.firstDeviceForm {
-	background-image: url('../../images/android.jpg');
-	background-size: cover;
+	label {
+		padding: 20px 0;
+		font-size: 1.3rem;
+		color: white;
+	}
+
+	input {
+		padding: 10px;
+		font-size: 1.3rem;
+	}
 }
 
 .secondDeviceForm {
-	background-image: url('../../image/.jpg');
-	background-size: cover; 
+	border-left: 1px solid #969696;
+}
+
+// Results
+.results {
+	background-color: #2a1814;
+}
+
+.bothPhones-container {
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 40px;
+}
+
+.firstPhone-container, .secondPhone-container {
+	width: 500px;
+	padding: 60px 10px 60px 60px;
+	font-family: $bodyFont;
+	font-weight: 300;
+	vertical-align: top;
+
+	ul {
+		list-style-position: inside;
+		padding-left: 0;
+		font-size: 1.2rem;
+		line-height: 30px;
+		color: #c9c9c9;
+	}
+
+	li {
+		list-style-type: none;
+		padding: 15px 0;
+		border-bottom: 1px solid #c9c9c9;
+	}
+
+	span {
+		font-weight: 700;
+		color: #eaeaea;
+	}
 }
