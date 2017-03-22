@@ -187,17 +187,6 @@ form {
   justify-content: center;
   padding-top: 100px; }
 
-.btnCompare {
-  width: 200px;
-  padding: 20px;
-  background-color: black;
-  color: white;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.1rem;
-  border: 0;
-  text-transform: uppercase;
-  margin: 90px 0 20px 0; }
-
 .firstDeviceForm, .secondDeviceForm {
   width: 500px;
   display: -ms-flexbox;
@@ -211,11 +200,31 @@ form {
     font-size: 1.3rem;
     color: white; }
   .firstDeviceForm input, .secondDeviceForm input {
+    background-color: white;
+    color: black;
     padding: 10px;
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    border: 1px solid white; }
+  .firstDeviceForm input:focus, .secondDeviceForm input:focus {
+    color: black; }
 
 .secondDeviceForm {
-  border-left: 1px solid #969696; }
+  border-left: 1px solid #bababa; }
+
+.btnCompare {
+  width: 200px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  border: 0;
+  text-transform: uppercase;
+  margin: 90px 0 20px 0; }
+
+.btnCompare:hover {
+  background-color: #c12227;
+  transition: 0.3s ease-in; }
 
 .results {
   background-color: #2a1814; }
@@ -264,6 +273,8 @@ form {
   padding: 10px; }
   .credits a:link, .credits a:active, .credits a:focus, .credits a:visited {
     color: #e3c58f; }
+  .credits a:hover {
+    color: #c12227; }
   .credits p {
     padding: 0;
     margin: 0; }
