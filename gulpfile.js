@@ -21,7 +21,7 @@ gulp.task("styles", () => {
 });
 
 gulp.task('js', () => {
-   browserify('src/app.js', {debug: true})
+   browserify('src/components/app.js', {debug: true})
        .transform('babelify', {
            sourceMaps: true,
            presets: ['es2015','react']

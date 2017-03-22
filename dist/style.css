@@ -163,7 +163,8 @@ body {
 .heroImage {
   background-image: url("../../images/android.jpg");
   background-repeat: no-repeat;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background-position: center center; }
 
 form {
   display: -ms-flexbox;

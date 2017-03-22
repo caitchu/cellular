@@ -1,7 +1,8 @@
 //LAST WORKING CODE
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ajax, when } from 'jquery'; 
+import { ajax, when } from 'jquery';  
+import Header from './header.js';
 import Credits from './credits.js';
 
 // Const
@@ -148,29 +149,26 @@ class App extends React.Component {
 		return(
 			<div className="container">
 				<div className="heroImage">
-					<div className="logo">
-						<h1>Versus</h1>
-						<h2>Compare Mobile Phones</h2>
-					</div>
+					<Header />
 					
 					<form onSubmit={this.getDeviceByBrandAndModel}>
 						<div className="formContainer">
 							<div className="firstDeviceForm">
 								<h3>First Device</h3>
 								<label htmlFor="userBrand">Phone Brand: </label>
-								<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} defaultValue="Samsung" required />
+								<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} required placeholder="i.e. Samsung" />
 
 								<label htmlFor="userModel">Phone Model: </label>
-								<input type="text" name="userModel" ref={ref => this.userModel1 = ref} defaultValue="S300" required />
+								<input type="text" name="userModel" ref={ref => this.userModel1 = ref} required placeholder="i.e. Note8" />
 							</div>
 
 							<div className="secondDeviceForm">
 								<h3>Second Device</h3>
 								<label htmlFor="userBrand">Phone Brand: </label>
-								<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} defaultValue="Samsung" required /> 
+								<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} required placeholder="i.e. Apple" /> 
 
 								<label htmlFor="userModel">Phone Model: </label>
-								<input type="text" name="userModel" ref={ref => this.userModel2 = ref} defaultValue="Note5" required />	
+								<input type="text" name="userModel" ref={ref => this.userModel2 = ref} required placeholder="i.e. Iphone 7"/>	
 							</div>	
 						</div>
 							<input className="btnCompare" type="submit" value="Compare"/>
