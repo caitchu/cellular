@@ -2,16 +2,12 @@
 @import "partials/variables";
 
 body {
-	background-color: $grey;
-	background-image: url('');
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-color: black;
 }
 
 .logo {
 	margin: 0 auto;
 	padding: 20px;
-	// background-color: black;
 	width: 400px;
 
 	h1 {
@@ -35,12 +31,7 @@ body {
 }
 
 .container { // contains all
-	background-image: url('../../images/android.jpg');
-	background-repeat: no-repeat;
-	background-color: black;
-	// background-position: 0 -100px;
-	background-size: cover;
-	height: 100vh;
+	height: 100%;
 
 	h3 {
 		color: $red;
@@ -50,11 +41,23 @@ body {
 	}
 }
 
+.heroImage {
+	background-image: url('../../images/android.jpg');
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	background-position: center center;
+}
+
 //Forms
 form { // contains the button too
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	img {
+		width: 30px;
+		padding-bottom: 40px;
+	}
 }
 
 .formContainer { // contains both the forms, not the button
@@ -74,7 +77,7 @@ form { // contains the button too
 	font-size: 1.1rem;
 	border: 0;
 	text-transform: uppercase;
-	margin: 90px;
+	margin: 90px 0 20px 0;
 }
 
 .firstDeviceForm, .secondDeviceForm {
@@ -125,17 +128,119 @@ form { // contains the button too
 		padding-left: 0;
 		font-size: 1.2rem;
 		line-height: 30px;
-		color: #c9c9c9;
+		color: $lightgrey;
 	}
 
 	li {
 		list-style-type: none;
 		padding: 15px 0;
-		border-bottom: 1px solid #c9c9c9;
+		border-bottom: 1px solid $lightgrey;
 	}
 
 	span {
 		font-weight: 700;
-		color: #eaeaea;
+		color: $faintwhite;
+	}
+}	
+
+.warning {
+	font-family: $bodyFont;
+	font-size: 2rem;
+	color: white;
+	text-align: center;
+}
+
+.credits {
+	color: white;
+	font-family: $bodyFont;
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 10px;
+
+	a:link, a:active, a:focus, a:visited {
+		color: $lightbrown;
+	}
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+
+// Media Queries
+@media (max-width: 1120px) {
+	.firstPhone-container, .secondPhone-container {
+		padding: 15px;
+	}
+}
+
+@media (max-width: 760px) {
+	.container {
+		background-position: bottom;
+	}
+
+	.formContainer {
+		padding-top: 60px;
+	}
+
+	.logo {
+		padding: 15px;
+		width: 400px;
+
+		h1 {
+			font-size: 4.3rem;
+			margin: 40px 0 0 0;
+		}
+
+		h2 {
+			color: $lightbrown;
+			font-family: $headerFont;
+			font-size: 1.3rem;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+
+	.firstDeviceForm, .secondDeviceForm {
+		padding: 0 30px;
+	}
+}
+
+@media (max-width: 540px) {
+	.container {
+		h3 {
+			font-size: 2rem;
+			text-align: center;
+		}
+	}
+
+	.formContainer {
+		flex-direction: column;
+	}
+
+	.firstDeviceForm, .secondDeviceForm {
+		width: 100%;
+	}
+
+	.firstDeviceForm {
+		padding-bottom: 50px;
+	}
+
+	.secondDeviceForm {
+		padding-top: 50px;
+		border-left: 0px;
+		border-top: 1px solid #969696;
+	}
+
+	.bothPhones-container {
+		flex-direction: column;
+		padding: 20px;
+	}
+
+	.firstPhone-container, .secondPhone-container {
+		width: 100%;
 	}
 }

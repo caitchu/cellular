@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald|Rajdhani);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700|Rajdhani);
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
@@ -130,35 +130,51 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 body {
-  background-color: #303030;
-  background-image: url("");
+  background-color: black; }
+
+.logo {
+  margin: 0 auto;
+  padding: 20px;
+  width: 400px; }
+  .logo h1 {
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 5.5rem;
+    margin: 40px 0 0 0;
+    text-transform: uppercase;
+    text-align: center; }
+  .logo h2 {
+    color: #e3c58f;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase; }
+
+.container {
+  height: 100%; }
+  .container h3 {
+    color: #c12227;
+    font-family: "Rajdhani", sans-serif;
+    font-size: 2.2rem;
+    margin: 0; }
+
+.heroImage {
+  background-image: url("../../images/android.jpg");
   background-repeat: no-repeat;
-  background-size: cover; }
+  min-height: 100vh; }
 
-header {
-  background-color: black;
-  margin: 0;
-  padding: 20px; }
-
-.container h1 {
-  color: #c12227;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 4rem;
-  text-align: center;
-  margin: 20px 0 0 0;
-  text-transform: uppercase; }
-
-.container h2 {
-  color: white;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.6rem;
-  text-align: center;
-  margin-top: 0; }
-
-.container h3 {
-  color: white;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 2rem; }
+form {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center; }
+  form img {
+    width: 30px;
+    padding-bottom: 40px; }
 
 .formContainer {
   display: -ms-flexbox;
@@ -167,18 +183,134 @@ header {
   flex-direction: row;
   width: 100%;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  padding-top: 100px; }
+
+.btnCompare {
+  width: 200px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  border: 0;
+  text-transform: uppercase;
+  margin: 90px 0 20px 0; }
 
 .firstDeviceForm, .secondDeviceForm {
-  width: 50%;
-  height: 100vh; }
-
-.firstDeviceForm {
-  background-image: url("../../images/android.jpg");
-  background-size: cover;
+  width: 500px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 60px;
   font-family: "Rajdhani", sans-serif; }
+  .firstDeviceForm label, .secondDeviceForm label {
+    padding: 20px 0;
+    font-size: 1.3rem;
+    color: white; }
+  .firstDeviceForm input, .secondDeviceForm input {
+    padding: 10px;
+    font-size: 1.3rem; }
 
 .secondDeviceForm {
-  background-image: url("../../image/.jpg");
-  background-size: cover;
-  font-family: "Rajdhani", sans-serif; }
+  border-left: 1px solid #969696; }
+
+.results {
+  background-color: #2a1814; }
+
+.bothPhones-container {
+  color: white;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 40px; }
+
+.firstPhone-container, .secondPhone-container {
+  width: 500px;
+  padding: 60px 10px 60px 60px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  vertical-align: top; }
+  .firstPhone-container ul, .secondPhone-container ul {
+    list-style-position: inside;
+    padding-left: 0;
+    font-size: 1.2rem;
+    line-height: 30px;
+    color: #bababa; }
+  .firstPhone-container li, .secondPhone-container li {
+    list-style-type: none;
+    padding: 15px 0;
+    border-bottom: 1px solid #bababa; }
+  .firstPhone-container span, .secondPhone-container span {
+    font-weight: 700;
+    color: #eaeaea; }
+
+.warning {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  color: white;
+  text-align: center; }
+
+.credits {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 10px; }
+  .credits a:link, .credits a:active, .credits a:focus, .credits a:visited {
+    color: #e3c58f; }
+  .credits p {
+    padding: 0;
+    margin: 0; }
+
+@media (max-width: 1120px) {
+  .firstPhone-container, .secondPhone-container {
+    padding: 15px; } }
+
+@media (max-width: 760px) {
+  .container {
+    background-position: bottom; }
+  .formContainer {
+    padding-top: 60px; }
+  .logo {
+    padding: 15px;
+    width: 400px; }
+    .logo h1 {
+      font-size: 4.3rem;
+      margin: 40px 0 0 0; }
+    .logo h2 {
+      color: #e3c58f;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1.3rem;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      text-transform: uppercase; }
+  .firstDeviceForm, .secondDeviceForm {
+    padding: 0 30px; } }
+
+@media (max-width: 540px) {
+  .container h3 {
+    font-size: 2rem;
+    text-align: center; }
+  .formContainer {
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .firstDeviceForm, .secondDeviceForm {
+    width: 100%; }
+  .firstDeviceForm {
+    padding-bottom: 50px; }
+  .secondDeviceForm {
+    padding-top: 50px;
+    border-left: 0px;
+    border-top: 1px solid #969696; }
+  .bothPhones-container {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 20px; }
+  .firstPhone-container, .secondPhone-container {
+    width: 100%; } }

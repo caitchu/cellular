@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ajax, when } from 'jquery'; 
+import Credits from './credits.js';
 
 // Const
 const fonoUrl = 'https://fonoapi.freshpixl.com/v1/getdevice'; 
@@ -126,58 +127,62 @@ class App extends React.Component {
 				)
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length > 0) {
 				results = (
-					<div className="firstPhone-container">
-						<p>The first phone doesn't exist.</p>
+					<div className="bothPhones-container">
+						<p className="warning">Oops! Can't find the first phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
 					</div>
 				)
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length > 0) && Object.keys(this.state.phone2).length === 0) {
 				results = (
-					<div className="secondPhone-container">
-						<p>The second phone doesn't exist.</p>
+					<div className="bothPhones-container">
+						<p className="warning">Oops! Can't find the second phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
 					</div>
 				)
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length === 0) {
 				results = (
 					<div className="bothPhones-container">
-						<p>Both these phones don't exist!</p>
+						<p className="warning">Oops! Can't find either phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
 					</div>
 				)
 			}
 
 		return(
 			<div className="container">
-
-				<div className="logo">
-					<h1>Versus</h1>
-					<h2>Compare Mobile Phones</h2>
-				</div>
-				
-				<form onSubmit={this.getDeviceByBrandAndModel}>
-					<div className="formContainer">
-						<div className="firstDeviceForm">
-							<h3>First Device</h3>
-							<label htmlFor="userBrand">Phone Brand: </label>
-							<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} defaultValue="Samsung" required />
-
-							<label htmlFor="userModel">Phone Model: </label>
-							<input type="text" name="userModel" ref={ref => this.userModel1 = ref} defaultValue="S300" required />
-						</div>
-
-						<div className="secondDeviceForm">
-							<h3>Second Device</h3>
-							<label htmlFor="userBrand">Phone Brand: </label>
-							<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} defaultValue="Samsung" required /> 
-
-							<label htmlFor="userModel">Phone Model: </label>
-							<input type="text" name="userModel" ref={ref => this.userModel2 = ref} defaultValue="Note5" required />	
-						</div>	
+				<div className="heroImage">
+					<div className="logo">
+						<h1>Versus</h1>
+						<h2>Compare Mobile Phones</h2>
 					</div>
-						<input className="btnCompare" type="submit" value="Compare"/>	
-				</form>
+					
+					<form onSubmit={this.getDeviceByBrandAndModel}>
+						<div className="formContainer">
+							<div className="firstDeviceForm">
+								<h3>First Device</h3>
+								<label htmlFor="userBrand">Phone Brand: </label>
+								<input type="text" name="userBrand" ref={ref => this.userBrand1 = ref} defaultValue="Samsung" required />
+
+								<label htmlFor="userModel">Phone Model: </label>
+								<input type="text" name="userModel" ref={ref => this.userModel1 = ref} defaultValue="S300" required />
+							</div>
+
+							<div className="secondDeviceForm">
+								<h3>Second Device</h3>
+								<label htmlFor="userBrand">Phone Brand: </label>
+								<input type="text" name="userBrand" ref={ref => this.userBrand2 = ref} defaultValue="Samsung" required /> 
+
+								<label htmlFor="userModel">Phone Model: </label>
+								<input type="text" name="userModel" ref={ref => this.userModel2 = ref} defaultValue="Note5" required />	
+							</div>	
+						</div>
+							<input className="btnCompare" type="submit" value="Compare"/>
+							<img src="./images/arrowdown.png" alt="arrow down" />
+					</form>
+				</div>
 			
 				<div className="results">
 					{results}
 				</div>
+				
+				<Credits />
 			</div>
 		)
 	}
