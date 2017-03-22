@@ -129,19 +129,19 @@ class App extends React.Component {
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length > 0) {
 				results = (
 					<div className="bothPhones-container">
-						<p className="warning">Oops! Can't find the first phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
+						<p className="warning">Darn. Can't find the first phone. Check spelling, or spacing since sometimes we're silly.</p>
 					</div>
 				)
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length > 0) && Object.keys(this.state.phone2).length === 0) {
 				results = (
 					<div className="bothPhones-container">
-						<p className="warning">Oops! Can't find the second phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
+						<p className="warning">Darn. Can't find the second phone. Check spelling, or spacing since sometimes we're silly.</p>
 					</div>
 				)
 			} else if (this.state.displayData === true && (Object.keys(this.state.phone1).length === 0) && Object.keys(this.state.phone2).length === 0) {
 				results = (
 					<div className="bothPhones-container">
-						<p className="warning">Oops! Can't find either phone. Check spacing or spelling! (Cause sometimes, we're dumb).</p>
+						<p className="warning">Darn. Can't find either phone. Check spelling, or spacing since sometimes we're silly.</p>
 					</div>
 				)
 			}
