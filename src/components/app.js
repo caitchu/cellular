@@ -61,7 +61,7 @@ class App extends React.Component {
 		let results = "";
 		if (this.state.displayData === true && Object.keys(this.state.phone1).length > 0 && Object.keys(this.state.phone2).length > 0) { 
 		 	results = (
-				<div className="bothPhones-container">
+				<div id="anchor" className="bothPhones-container">
 					<div className="firstPhone-container">
 						<h3>{this.state.phone1.DeviceName}</h3>
 						<ul className="SpecsList">
@@ -172,7 +172,7 @@ class App extends React.Component {
 							</div>	
 						</div>
 							<input className="btnCompare" type="submit" value="Compare"/>
-							<img src="./images/arrowdown.png" alt="arrow down" />
+							<a href="#anchor"><img src="./images/arrowdown.png" alt="arrow down" /></a>
 					</form>
 				</div>
 			

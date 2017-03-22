@@ -68,18 +68,6 @@ form { // contains the button too
 	padding-top: 100px;
 }
 
-.btnCompare {
-	width: 200px;
-	padding: 20px;
-	background-color: black;
-	color: white;
-	font-family: $headerFont;
-	font-size: 1.1rem;
-	border: 0;
-	text-transform: uppercase;
-	margin: 90px 0 20px 0;
-}
-
 .firstDeviceForm, .secondDeviceForm {
 	width: 500px;
 	display: flex;
@@ -101,6 +89,18 @@ form { // contains the button too
 
 .secondDeviceForm {
 	border-left: 1px solid #969696;
+}
+
+.btnCompare {
+	width: 200px;
+	padding: 20px;
+	background-color: black;
+	color: white;
+	font-family: $headerFont;
+	font-size: 1.1rem;
+	border: 0;
+	text-transform: uppercase;
+	margin: 90px 0 20px 0;
 }
 
 // Results
